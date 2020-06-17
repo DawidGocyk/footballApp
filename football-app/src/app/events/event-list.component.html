@@ -1,18 +1,19 @@
 <div class="container">
   <h1>Upcoming Real Madrid Matches</h1>
   <form id="searchForm" (ngSubmit)="searchMatches(searchTerm)">
-    <div class="form-group">
-      <input
-        [(ngModel)]="searchTerm"
-        style="width: 400px;"
-        name="searchTerm"
-        type="text"
-        class="form-control"
-        placeholder="Search match"
-      />
-      <button>
-        Search
-      </button>
+    <div class="fields">
+      <div class="field">
+        <input
+          [(ngModel)]="searchTerm"
+          style="width: 400px;"
+          name="searchTerm"
+          type="text"
+          class="form-control"
+          placeholder="Search match"
+          styles="display:inline-block"
+        />
+      </div>
+      <div class="field"><button>Search</button></div>
     </div>
   </form>
   <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a>

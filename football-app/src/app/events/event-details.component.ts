@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   template: `
   <div class="container">
-  <div>
+  <div><strong>
     <h2>Match Info</h2>
     <span>GameWeek: {{match.match.matchday}}</span>
     <div>
@@ -13,7 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
     </div>
     <div>Away Team : {{match.match.awayTeam.name}}</div>
     <span>Stadium: {{match.match.venue}}</span>
-</div>
+</strong></div>
+<hr>
   <div>
     <h2>Head to head info</h2>
     <table class="table table-striped">
@@ -34,16 +35,11 @@ import { ActivatedRoute, Router } from '@angular/router';
     </tr>
   </tbody>
 </table>
-
-
-    <!-- <span>Numer Of Matches: {{match.head2head.numberOfMatches}}</span>
-    <div>
-     {{match.match.homeTeam.name}}
-    </div>
-    <div>{{match.match.awayTeam.name}}</div> -->
 </div>
+<prediction [teams]="teams"></prediction>
 <button (click)="backToMatches()">back</button>
 </div>
+
   `
 })
 

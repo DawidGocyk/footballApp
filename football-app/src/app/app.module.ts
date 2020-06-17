@@ -12,6 +12,7 @@ import { EventDetailsComponent } from './events/event-details.component';
 import { NewEventComponent } from './events/new-event.component';
 import { EventResolver } from './events/event-resolver.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PredictionComponent } from './events/event-prediction.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EventListComponent,
     EventDetailsComponent,
     NewEventComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    PredictionComponent
   ],
   imports: [
     BrowserModule,

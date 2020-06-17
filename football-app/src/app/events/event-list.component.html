@@ -33,6 +33,12 @@
           <a [routerLink]="['/posts', match.id]">
             {{ match.homeTeam.name }} Vs {{ match.awayTeam.name }}</a
           >
+          <div *ngFor="let predictions of userPredictions">
+            <div *ngIf="predictions.id === match.id">
+              <span>Your predictions is </span>
+              <span winner>{{ predictions.winner }}</span>
+            </div>
+          </div>
         </h3>
         <div>Match Date : {{ match.utcDate | date: "short" }}</div>
         <!-- <div>Away Team :{{ match.id }}</div> -->

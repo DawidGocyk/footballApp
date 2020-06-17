@@ -36,7 +36,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   </tbody>
 </table>
 </div>
-<prediction [teams]="teams"></prediction>
+<prediction [teams]="teams" [id]="id"></prediction>
 <button (click)="backToMatches()">back</button>
 </div>
 
@@ -46,6 +46,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EventDetailsComponent implements OnInit {
   match
   teams = []
+  id
   constructor(private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -53,6 +54,7 @@ export class EventDetailsComponent implements OnInit {
     console.log('mathc = ', this.match)
     this.teams.push(this.match.head2head.homeTeam)
     this.teams.push(this.match.head2head.awayTeam)
+    this.id = this.match.match.id
     console.log(this.teams)
   }
   backToMatches() {

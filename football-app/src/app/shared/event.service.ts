@@ -27,6 +27,7 @@ export class EventService {
 
   makeNewPrediction(data) {
     userPredicions.push(data)
+    console.log('make new pre service', userPredicions)
   }
 
   getUserPredictions() {

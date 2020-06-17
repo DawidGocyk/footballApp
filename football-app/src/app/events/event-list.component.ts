@@ -1,3 +1,4 @@
+import { EventService } from './../shared/event.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,7 +11,8 @@ export class EventListComponent implements OnInit {
   matches
   displayedMatches
   searchTerm
-  constructor(private route: ActivatedRoute) {
+  userPredictions = []
+  constructor(private route: ActivatedRoute, private eventService: EventService) {
 
   }
 
@@ -20,6 +22,8 @@ export class EventListComponent implements OnInit {
     this.matches = this.events.matches
     console.log(this.events)
     this.displayedMatches = this.events.matches
+    this.userPredictions = this.eventService.getUserPredictions()
+    console.log('user Predictions', this.eventService.getUserPredictions())
   }
 
   filterBy(homeMatch: string) {

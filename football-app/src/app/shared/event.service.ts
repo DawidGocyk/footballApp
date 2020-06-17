@@ -25,6 +25,14 @@ export class EventService {
     }
   }
 
+  makeNewPrediction(data) {
+    userPredicions.push(data)
+  }
+
+  getUserPredictions() {
+    return userPredicions
+  }
+
   getEvent(id: number): Observable<any> {
     console.log('getEvent')
     return this.http.get<any>('https://api.football-data.org/v2/matches/' + id, this.options)
@@ -32,3 +40,8 @@ export class EventService {
   }
 
 }
+
+const userPredicions = [
+
+
+]

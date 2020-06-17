@@ -1,0 +1,42 @@
+<div>
+  <h1>Upcoming Real Madrid Matches</h1>
+  <form id="searchForm" (ngSubmit)="searchMatches(searchTerm)">
+    <div class="form-group">
+      <input
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+        type="text"
+        class="form-control"
+        placeholder="Search match"
+      />
+    </div>
+    <button>
+      Search
+    </button>
+  </form>
+  <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a>
+  <div>
+    Filters By
+    <button (click)="filterBy('Real Madrid CF')">Real at home</button>
+    <button (click)="resetFilters()">Reset Filters</button>
+  </div>
+  <hr />
+  <div>
+    <div>
+      <div *ngFor="let match of displayedMatches">
+        <h2>{{ match.competition.name | uppercase }}</h2>
+        <h3>
+          <a [routerLink]="['/posts', match.id]">
+            {{ match.homeTeam.name }} Vs {{ match.awayTeam.name }}</a
+          >
+        </h3>
+        <!-- <div>Away Team :{{ match.id }}</div> -->
+        <!-- <div>Home Team : {{ match.homeTeam.name }}</div>
+      <div>Away Team : match.awayTeam.name</div> -->
+        <div>Match Date : {{ match.utcDate | date: "short" }}</div>
+        <button>addPredicate</button>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

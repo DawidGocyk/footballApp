@@ -33,6 +33,8 @@ export class PredictionComponent implements OnInit {
   ngOnInit() {
     console.log("teams from pre", this.teams)
     this.winner = this.findWinner(this.teams)
+    this.yourPick = this.eventService.getUserPredictionsById(this.id)
+    console.log('PICK', this.yourPick)
 
   }
 

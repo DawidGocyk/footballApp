@@ -26,12 +26,25 @@ export class EventService {
   }
 
   makeNewPrediction(data) {
-    userPredicions.push(data)
+    var comp = userPredicions.find(comp => comp.id === data.id)
+    if (comp) {
+      let index = userPredicions.indexOf(comp)
+      userPredicions[index] = data
+    } else {
+      userPredicions.push(data)
+    }
+
     console.log('make new pre service', userPredicions)
   }
 
   getUserPredictions() {
     return userPredicions
+  }
+
+  getUserPredictionsById(id) {
+    var comp = userPredicions.find(comp => comp.id === id)
+    if (comp) return comp.winner
+    else return comp
   }
 
   getEvent(id: number): Observable<any> {

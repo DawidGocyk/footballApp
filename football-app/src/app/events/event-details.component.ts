@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       Home Team : {{match.match.homeTeam.name}}
     </div>
     <div>Away Team : {{match.match.awayTeam.name}}</div>
-    <span>Stadium: {{match.match.venue}}</span>
+    <span>Stadium: {{match.match.venue | stadiumPipe}}</span>
 </strong></div>
 <hr>
   <div>
@@ -57,6 +57,6 @@ export class EventDetailsComponent implements OnInit {
   }
   backToMatches() {
     this.router.navigate([''])
-
   }
+
 }

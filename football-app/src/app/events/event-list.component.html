@@ -1,5 +1,6 @@
 <div class="container">
   <h1>Upcoming Real Madrid Matches</h1>
+  <hr />
   <form id="searchForm" (ngSubmit)="searchMatches(searchTerm)">
     <div class="fields">
       <div class="field">
@@ -20,6 +21,7 @@
   <div>
     Filters By
     <button (click)="filterBy('Real Madrid CF')">Real at home</button>
+    <button (click)="sortByLastUpdate()">Last Updated</button>
     <button (click)="resetFilters()">Reset Filters</button>
   </div>
   <hr />
@@ -32,11 +34,11 @@
             {{ match.homeTeam.name }} Vs {{ match.awayTeam.name }}</a
           >
         </h3>
+        <div>Match Date : {{ match.utcDate | date: "short" }}</div>
         <!-- <div>Away Team :{{ match.id }}</div> -->
         <!-- <div>Home Team : {{ match.homeTeam.name }}</div>
       <div>Away Team : match.awayTeam.name</div> -->
-        <div>Match Date : {{ match.utcDate | date: "short" }}</div>
-        <button>addPredicate</button>
+        <div>Last Updated Date : {{ match.lastUpdated | date: "short" }}</div>
         <hr />
       </div>
     </div>

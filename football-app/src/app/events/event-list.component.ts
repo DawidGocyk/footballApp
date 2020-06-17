@@ -27,6 +27,7 @@ export class EventListComponent implements OnInit {
   }
   resetFilters() {
     this.displayedMatches = this.matches
+    this.sortByDate()
   }
 
   searchMatches(searchValue: string) {
@@ -34,5 +35,22 @@ export class EventListComponent implements OnInit {
     this.displayedMatches = this.displayedMatches.filter(match => match.homeTeam.name.includes(searchValue)
       || match.awayTeam.name.includes(searchValue))
     console.log('after check ', this.displayedMatches)
+  }
+
+  sortByLastUpdate() {
+    this.displayedMatches.sort((m1, m2) => {
+      if (m1.lastUpdated > m2.lastUpdated) return 1
+      else if (m1.lastUpdated === m2.lastUpdated) return 0
+      else return -1
+
+    })
+  }
+  sortByDate() {
+    this.displayedMatches.sort((m1, m2) => {
+      if (m1.utcDate > m2.utcDate) return 1
+      else if (m1.utcDate === m2.utcDate) return 0
+      else return -1
+
+    })
   }
 }

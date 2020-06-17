@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'prediction',
   template: `
     <div>
-      <h3>Prediction by stats : {{winner}}</h3>
+      <h3 winner>Prediction by stats : {{winner}}</h3>
     </div>
   `
 })

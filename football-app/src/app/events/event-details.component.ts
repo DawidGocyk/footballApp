@@ -29,7 +29,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   <tbody>
     <tr *ngFor="let team of teams">
     <th scope="row">{{team.name}}</th>
-    <td>{{ team.wins | number }}</td>
+    <td winner>{{ team.wins | number }}</td>
     <td>{{ team.draws | number }}</td>
     <td>{{ team.losses | number }}</td>
     </tr>

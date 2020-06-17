@@ -8,8 +8,8 @@ import { appRoutes } from './routes';
 import { EventService } from './shared/event.service';
 import { EventListResolver } from './events/event-list-resolver.service';
 import { HttpClientModule } from '@angular/common/http';
-import { PostDetailsComponent } from './events/post-details.component';
-import { NewPostComponent } from './events/new-post.component';
+import { EventDetailsComponent } from './events/event-details.component';
+import { NewEventComponent } from './events/new-event.component';
 import { EventResolver } from './events/event-resolver.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,9 +17,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     EventListComponent,
-    PostDetailsComponent,
-    NewPostComponent,
-    PostDetailsComponent
+    EventDetailsComponent,
+    NewEventComponent,
+    EventDetailsComponent
   ],
   imports: [
     BrowserModule,

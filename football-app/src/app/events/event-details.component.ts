@@ -25,7 +25,7 @@ import { ActivatedRoute } from '@angular/router';
   `
 })
 
-export class PostDetailsComponent implements OnInit {
+export class EventDetailsComponent implements OnInit {
   match
   constructor(private eventService: EventService, private route: ActivatedRoute) { }
 

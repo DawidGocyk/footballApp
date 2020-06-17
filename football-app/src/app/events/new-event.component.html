@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Create Post</h2>
+  <hr />
+  <form #eventForm="ngForm" (ngSubmit)="savePost(eventForm.value)">
+    <div class="form-group">
+      <label for="title">Title: </label>
+      <input
+        (ngModel)="(title)"
+        name="title"
+        required
+        id="title"
+        type="text"
+        required
+      />
+      <em
+        *ngIf="
+          eventForm.controls.title?.invalid && eventForm.controls.title?.touched
+        "
+        >Required</em
+      >
+    </div>
+    <div class="form-group">
+      <label for="body">Body: </label>
+      <input (ngModel)="(body)" name="body" required id="body" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="userId">UserId: </label>
+      <input
+        (ngModel)="(userId)"
+        required
+        name="userId"
+        id="userId"
+        type="text"
+      />
+    </div>
+    <button type="submit" [disabled]="eventForm.invalid">
+      Save
+    </button>
+    <button (click)="backToPosts()">Back</button>
+  </form>
+</div>

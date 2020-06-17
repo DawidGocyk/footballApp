@@ -1,0 +1,52 @@
+<div class="container">
+  <h1>Upcoming Real Madrid Matches</h1>
+  <hr />
+  <form id="searchForm" (ngSubmit)="searchMatches(searchTerm)">
+    <div class="fields">
+      <div class="field">
+        <input
+          [(ngModel)]="searchTerm"
+          style="width: 400px;"
+          name="searchTerm"
+          type="text"
+          class="form-control"
+          placeholder="Search match"
+          styles="display:inline-block"
+        />
+      </div>
+      <div class="field"><button>Search</button></div>
+    </div>
+  </form>
+  <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a>
+  <div>
+    Filters By
+    <button (click)="filterBy('Real Madrid CF')">Real at home</button>
+    <button (click)="sortByLastUpdate()">Last Updated</button>
+    <button (click)="resetFilters()">Reset Filters</button>
+  </div>
+  <hr />
+  <div>
+    <div>
+      <div *ngFor="let match of displayedMatches">
+        <h2>{{ match.competition.name | uppercase }}</h2>
+        <h3>
+          <a [routerLink]="['/posts', match.id]">
+            {{ match.homeTeam.name }} Vs {{ match.awayTeam.name }}</a
+          >
+          <div *ngFor="let predictions of userPredictions">
+            <div *ngIf="predictions.id === match.id">
+              <span>Your predictions is </span>
+              <span winner>{{ predictions.winner }}</span>
+            </div>
+          </div>
+        </h3>
+        <div>Match Date : {{ match.utcDate | date: "short" }}</div>
+        <!-- <div>Away Team :{{ match.id }}</div> -->
+        <!-- <div>Home Team : {{ match.homeTeam.name }}</div>
+      <div>Away Team : match.awayTeam.name</div> -->
+        <div>Last Updated Date : {{ match.lastUpdated | date: "short" }}</div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

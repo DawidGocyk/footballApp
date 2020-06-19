@@ -28,7 +28,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Show your predictions</button>
+<button style="margin-right: 100px;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Show your predictions</button>
   `
 })
 

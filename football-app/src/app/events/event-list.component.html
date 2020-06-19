@@ -4,27 +4,36 @@
     (filteredMatches)="filterMatches($event)"
   ></nav-bar>
   <div>
-    <h1>
+    <h2>
       Upcoming Real Madrid Matches
-      <span style="position: absolute; right: 150px;"
+      <span style="position: absolute; right: 0;"
         ><prediction-modal></prediction-modal
       ></span>
-    </h1>
+    </h2>
   </div>
   <hr />
   <!-- <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a> -->
-  <div>
-    Filters By
-    <button (click)="filterBy('Real Madrid CF')">Real at home</button>
-    <button (click)="sortByLastUpdate()">Last Updated</button>
-    <button (click)="resetFilters()">Reset Filters</button>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button class="btn btn-primary">
+      Filter By
+    </button>
+    <button class="btn btn-primary" (click)="filterBy('Real Madrid CF')">
+      Real at home
+    </button>
+    <button class="btn btn-primary" (click)="sortByLastUpdate()">
+      Last Updated
+    </button>
+    <button class="btn btn-primary" (click)="resetFilters()">
+      Reset Filters
+    </button>
   </div>
 
   <hr />
   <div>
-    <div>
+    <div class="card">
       <div *ngFor="let match of displayedMatches">
-        <h2>{{ match.competition.name | uppercase }}</h2>
+        <div class="card-header">{{ match.competition.name | uppercase }}</div>
+        <!-- <h2>{{ match.competition.name | uppercase }}</h2> -->
         <h3>
           <a [routerLink]="['/posts', match.id]">
             {{ match.homeTeam.name }} Vs {{ match.awayTeam.name }}</a

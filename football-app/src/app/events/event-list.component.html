@@ -1,29 +1,25 @@
 <div class="container">
-  <h1>Upcoming Real Madrid Matches</h1>
+  <nav-bar
+    [displayedMatches]="displayedMatches"
+    (filteredMatches)="filterMatches($event)"
+  ></nav-bar>
+  <div>
+    <h1>
+      Upcoming Real Madrid Matches
+      <span style="position: absolute; right: 150px;"
+        ><prediction-modal></prediction-modal
+      ></span>
+    </h1>
+  </div>
   <hr />
-  <form id="searchForm" (ngSubmit)="searchMatches(searchTerm)">
-    <div class="fields">
-      <div class="field">
-        <input
-          [(ngModel)]="searchTerm"
-          style="width: 400px;"
-          name="searchTerm"
-          type="text"
-          class="form-control"
-          placeholder="Search match"
-          styles="display:inline-block"
-        />
-      </div>
-      <div class="field"><button>Search</button></div>
-    </div>
-  </form>
-  <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a>
+  <!-- <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a> -->
   <div>
     Filters By
     <button (click)="filterBy('Real Madrid CF')">Real at home</button>
     <button (click)="sortByLastUpdate()">Last Updated</button>
     <button (click)="resetFilters()">Reset Filters</button>
   </div>
+
   <hr />
   <div>
     <div>

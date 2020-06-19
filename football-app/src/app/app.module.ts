@@ -15,6 +15,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PredictionComponent } from './events/event-prediction.component';
 import { StadiumPipe } from './events/event-stadium.pipe';
 import { WinnerDirective } from './events/event.directive';
+import { EventModal } from './events/event-modal.component';
+import { SliceTeamsPipe } from './events/event-teams-slice.pipe';
+import { NavBar } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { WinnerDirective } from './events/event.directive';
     EventDetailsComponent,
     PredictionComponent,
     StadiumPipe,
-    WinnerDirective
+    WinnerDirective,
+    EventModal,
+    SliceTeamsPipe,
+    NavBar
   ],
   imports: [
     BrowserModule,

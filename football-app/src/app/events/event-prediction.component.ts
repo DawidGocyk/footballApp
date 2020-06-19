@@ -1,5 +1,6 @@
 import { EventService } from './../shared/event.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'prediction',
@@ -28,7 +29,7 @@ export class PredictionComponent implements OnInit {
   selectedOption
   homeTeam = 0
   awayTeam = 1
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
     console.log("teams from pre", this.teams)
@@ -54,8 +55,8 @@ export class PredictionComponent implements OnInit {
         this.teams[this.awayTeam].name,
       ]
     })
-    console.log('name', this.teams[this.selectedOption - 1].name)
     console.log('select', this.selectedOption)
+    this.router.navigate([''])
   }
 
   findWinner(teams) {

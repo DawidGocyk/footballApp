@@ -10,7 +10,6 @@ export class EventListComponent implements OnInit {
   events
   matches
   displayedMatches
-  searchTerm
   userPredictions = []
   constructor(private route: ActivatedRoute, private eventService: EventService) {
 
@@ -36,8 +35,10 @@ export class EventListComponent implements OnInit {
 
   searchMatches(searchValue: string) {
     console.log('search', searchValue)
-    this.displayedMatches = this.displayedMatches.filter(match => match.homeTeam.name.includes(searchValue)
-      || match.awayTeam.name.includes(searchValue))
+    if (searchValue) {
+      this.displayedMatches = this.displayedMatches.filter(match => match.homeTeam.name.includes(searchValue)
+        || match.awayTeam.name.includes(searchValue))
+    }
     console.log('after check ', this.displayedMatches)
   }
 
@@ -56,5 +57,9 @@ export class EventListComponent implements OnInit {
       else return -1
 
     })
+  }
+  filterMatches(data) {
+    console.log("new FIlre data", data)
+    this.displayedMatches = data
   }
 }

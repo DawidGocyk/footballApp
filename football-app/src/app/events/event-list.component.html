@@ -13,21 +13,34 @@
   </div>
   <hr />
   <!-- <a [routerLink]="['/posts/new']" routerLinkActive="active">Create Post</a> -->
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <button class="btn btn-primary">
-      Filter By
-    </button>
-    <button class="btn btn-primary" (click)="filterBy('Real Madrid CF')">
-      Real at home
-    </button>
-    <button class="btn btn-primary" (click)="sortByLastUpdate()">
-      Last Updated
-    </button>
-    <button class="btn btn-primary" (click)="resetFilters()">
-      Reset Filters
-    </button>
-  </div>
 
+  <div class="dropdown">
+    <button
+      class="btn btn-primary dropdown-toggle"
+      type="button"
+      id="dropdownMenu2"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Filters
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button
+        class="dropdown-item"
+        (click)="filterBy('Real Madrid CF')"
+        type="button"
+      >
+        Real at home
+      </button>
+      <button class="dropdown-item" (click)="sortByLastUpdate()" type="button">
+        Last Updated
+      </button>
+      <button class="dropdown-item" (click)="resetFilters()" type="button">
+        Reset Filters
+      </button>
+    </div>
+  </div>
   <hr />
   <div>
     <div class="card">

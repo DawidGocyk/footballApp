@@ -18,6 +18,7 @@ import { WinnerDirective } from './events/event.directive';
 import { EventModal } from './events/event-modal.component';
 import { SliceTeamsPipe } from './events/event-teams-slice.pipe';
 import { NavBar } from './nav-bar/nav-bar.component';
+import { PopperDirective } from './popper.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NavBar } from './nav-bar/nav-bar.component';
     WinnerDirective,
     EventModal,
     SliceTeamsPipe,
-    NavBar
+    NavBar,
+    PopperDirective
   ],
   imports: [
     BrowserModule,

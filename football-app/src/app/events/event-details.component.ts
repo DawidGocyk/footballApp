@@ -44,25 +44,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class EventDetailsComponent implements OnInit {
-  match
-  teams = []
-  id: string
+  match;
+  teams = [];
+  id: string;
   constructor(private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.match = this.route.snapshot.data['event']
-    console.log('mathc = ', this.match)
-    this.prepareMatchInfo()
+    this.match = this.route.snapshot.data.event;
+    console.log('mathc = ', this.match);
+    this.prepareMatchInfo();
   }
   prepareMatchInfo() {
-    this.teams.push(this.match.head2head.homeTeam)
-    this.teams.push(this.match.head2head.awayTeam)
-    this.id = this.match.match.id
-    console.log(this.teams)
+    this.teams.push(this.match.head2head.homeTeam);
+    this.teams.push(this.match.head2head.awayTeam);
+    this.id = this.match.match.id;
+    console.log(this.teams);
   }
 
   backToMatches() {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 
 }

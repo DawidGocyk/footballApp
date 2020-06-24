@@ -34,7 +34,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export class EventModal implements OnInit {
 
-  userPredictions
+  userPredictions;
 
   constructor(config: NgbModalConfig, private modalService: NgbModal, private eventService: EventService) {
     // customize default values of modals used by this component tree
@@ -42,8 +42,8 @@ export class EventModal implements OnInit {
     config.keyboard = false;
   }
   ngOnInit() {
-    this.userPredictions = this.eventService.getUserPredictions()
-    console.log("modal", this.userPredictions)
+    this.userPredictions = this.eventService.getUserPredictions();
+    console.log('modal', this.userPredictions);
   }
 
   open(content) {

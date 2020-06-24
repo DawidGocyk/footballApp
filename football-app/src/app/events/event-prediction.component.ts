@@ -22,30 +22,30 @@ import { Router } from '@angular/router';
 })
 
 export class PredictionComponent implements OnInit {
-  @Input() teams
-  @Input() id
-  winner
-  yourPick
-  selectedOption
-  homeTeam = 0
-  awayTeam = 1
+  @Input() teams;
+  @Input() id;
+  winner;
+  yourPick;
+  selectedOption;
+  homeTeam = 0;
+  awayTeam = 1;
   constructor(private eventService: EventService, private router: Router) { }
 
   ngOnInit() {
-    console.log("teams from pre", this.teams)
-    this.winner = this.findWinner(this.teams)
-    this.yourPick = this.eventService.getUserPredictionsById(this.id)
-    console.log('PICK', this.yourPick)
+    console.log('teams from pre', this.teams);
+    this.winner = this.findWinner(this.teams);
+    this.yourPick = this.eventService.getUserPredictionsById(this.id);
+    console.log('PICK', this.yourPick);
 
   }
 
   getPredicion() {
     if (this.selectedOption == 1) {
-      this.yourPick = this.teams[this.selectedOption - 1].name
+      this.yourPick = this.teams[this.selectedOption - 1].name;
     } else if (this.selectedOption === 'x') {
-      this.yourPick = 'Draw'
+      this.yourPick = 'Draw';
     } else {
-      this.yourPick = this.teams[this.selectedOption - 1].name
+      this.yourPick = this.teams[this.selectedOption - 1].name;
     }
     this.eventService.makeNewPrediction({
       id: this.id,
@@ -54,26 +54,26 @@ export class PredictionComponent implements OnInit {
         this.teams[this.homeTeam].name,
         this.teams[this.awayTeam].name,
       ]
-    })
-    console.log('select', this.selectedOption)
-    this.router.navigate([''])
+    });
+    console.log('select', this.selectedOption);
+    this.router.navigate(['']);
   }
 
   findWinner(teams) {
 
 
-    let homeTeamPoints
-    let awayTeamPoints
+    let homeTeamPoints;
+    let awayTeamPoints;
 
-    homeTeamPoints = teams[this.homeTeam].wins * 3 + teams[this.homeTeam].draws * 1
-    awayTeamPoints = teams[this.awayTeam].wins * 3 + teams[this.awayTeam].draws * 1
-    console.log('home', homeTeamPoints, 'away', awayTeamPoints)
+    homeTeamPoints = teams[this.homeTeam].wins * 3 + teams[this.homeTeam].draws * 1;
+    awayTeamPoints = teams[this.awayTeam].wins * 3 + teams[this.awayTeam].draws * 1;
+    console.log('home', homeTeamPoints, 'away', awayTeamPoints);
     if (homeTeamPoints > awayTeamPoints) {
-      return this.winner = teams[this.homeTeam].name
+      return this.winner = teams[this.homeTeam].name;
     } else if (homeTeamPoints === awayTeamPoints) {
-      return this.winner = 'Draw'
+      return this.winner = 'Draw';
     } else {
-      return this.winner = teams[this.awayTeam].name
+      return this.winner = teams[this.awayTeam].name;
     }
   }
 }

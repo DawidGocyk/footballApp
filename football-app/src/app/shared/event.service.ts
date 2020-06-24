@@ -7,50 +7,50 @@ import { catchError } from 'rxjs/operators';
 export class EventService {
   options = {
     headers: new HttpHeaders({
-      'X-Auth-Token': '18b76b518ee04b339f9b76165eb0b9b4'
+      'X-Auth-Token': ''
     })
   };
   constructor(private http: HttpClient) {
   }
   getEvents(): Observable<any> {
-    console.log('hi service')
+    console.log('hi service');
     return this.http.get<any>('https://api.football-data.org/v2/teams/86/matches?status=SCHEDULED', this.options)
-      .pipe(catchError(this.handleError<any[]>('getEvents', [])))
+      .pipe(catchError(this.handleError<any[]>('getEvents', [])));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
-      return of(result as T)
-    }
+      return of(result as T);
+    };
   }
 
   makeNewPrediction(data) {
-    var comp = userPredicions.find(comp => comp.id === data.id)
+    const comp = userPredicions.find(comp => comp.id === data.id);
     if (comp) {
-      let index = userPredicions.indexOf(comp)
-      userPredicions[index] = data
+      const index = userPredicions.indexOf(comp);
+      userPredicions[index] = data;
     } else {
-      userPredicions.push(data)
+      userPredicions.push(data);
     }
 
-    console.log('make new pre service', userPredicions)
+    console.log('make new pre service', userPredicions);
   }
 
   getUserPredictions() {
-    return userPredicions
+    return userPredicions;
   }
 
   getUserPredictionsById(id) {
-    var comp = userPredicions.find(comp => comp.id === id)
-    if (comp) return comp.winner
-    else return comp
+    const comp = userPredicions.find(comp => comp.id === id);
+    if (comp) { return comp.winner; }
+    else { return comp; }
   }
 
   getEvent(id: number): Observable<any> {
-    console.log('getEvent')
+    console.log('getEvent');
     return this.http.get<any>('https://api.football-data.org/v2/matches/' + id, this.options)
-      .pipe(catchError(this.handleError<any>('getEvent')))
+      .pipe(catchError(this.handleError<any>('getEvent')));
   }
 
 }
@@ -58,4 +58,4 @@ export class EventService {
 const userPredicions = [
 
 
-]
+];

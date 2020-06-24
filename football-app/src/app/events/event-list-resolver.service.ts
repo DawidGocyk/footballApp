@@ -1,7 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
-import { map } from 'rxjs/operators'
 import { EventService } from '../shared/event.service';
 
 
@@ -12,8 +11,8 @@ export class EventListResolver implements Resolve<any>{
   }
 
   resolve() {
-    console.log('heelo')
-    return this.eventService.getEvents()
+    console.log('heelo');
+    return this.eventService.getEvents();
   }
 
 }

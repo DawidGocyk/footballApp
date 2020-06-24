@@ -7,6 +7,6 @@ export class SliceTeamsPipe implements PipeTransform {
 
   transform(value: string[2]): string {
 
-    return value[0] + ' vs ' + value[1]
+    return value[0] + ' vs ' + value[1];
   }
 }

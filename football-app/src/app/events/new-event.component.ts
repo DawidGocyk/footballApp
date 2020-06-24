@@ -6,18 +6,18 @@ import { Router } from '@angular/router';
 })
 
 export class NewEventComponent implements OnInit {
-  title
-  userId
-  body
+  title;
+  userId;
+  body;
   constructor(private router: Router) { }
 
   ngOnInit() { }
 
   savePost(data) {
-    console.log(data)
-    this.router.navigate(['posts'])
+    console.log(data);
+    this.router.navigate(['posts']);
   }
   backToPosts() {
-    this.router.navigate(['posts'])
+    this.router.navigate(['posts']);
   }
 }

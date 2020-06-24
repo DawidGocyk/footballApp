@@ -42,28 +42,28 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class NavBar implements OnInit {
-  @Input() displayedMatches
-  @Output() filteredMatches = new EventEmitter()
-  searchTerm
-  fullMatchHistory
+  @Input() displayedMatches;
+  @Output() filteredMatches = new EventEmitter();
+  searchTerm;
+  fullMatchHistory;
   constructor() { }
 
   ngOnInit() {
-    this.fullMatchHistory = this.displayedMatches
+    this.fullMatchHistory = this.displayedMatches;
   }
 
   searchMatches(searchValue: string) {
-    console.log('1', this.displayedMatches, ' 2', this.fullMatchHistory)
-    this.displayedMatches = this.fullMatchHistory
+    console.log('1', this.displayedMatches, ' 2', this.fullMatchHistory);
+    this.displayedMatches = this.fullMatchHistory;
     if (searchValue) {
-      console.log('search1s??', searchValue)
+      console.log('search1s??', searchValue);
       this.displayedMatches = this.displayedMatches.filter(match => match.homeTeam.name.includes(searchValue)
-        || match.awayTeam.name.includes(searchValue))
+        || match.awayTeam.name.includes(searchValue));
     } else {
-      console.log('search1s els', searchValue)
+      console.log('search1s els', searchValue);
     }
-    this.filteredMatches.emit(this.displayedMatches)
-    console.log('after check ', this.displayedMatches)
+    this.filteredMatches.emit(this.displayedMatches);
+    console.log('after check ', this.displayedMatches);
   }
 
 
